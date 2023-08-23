@@ -3,7 +3,11 @@
 ```
 composer install
 ```
-
+#### Install db
+php artisan migrate
+```
+php artisan db:seed
+```
 #### Copy .env file
 
 ```
