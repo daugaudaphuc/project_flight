@@ -2154,16 +2154,19 @@ var render = function render() {
     on: {
       click: _vm.logout
     }
-  }, [_vm._v("Đăng xuất")]) : _c("div", [_c("router-link", {
+  }, [_vm._v("Đăng xuất")]) : _c("router-link", {
     staticClass: "nav-item nav-link",
     attrs: {
       "exact-active-class": "",
       to: "/signin"
-    },
-    on: {
-      click: _vm.logout
     }
-  }, [_vm._v("Đăng\n                            nhập")])], 1)], 1)])])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("Đăng\n                        nhập")]), _vm._v(" "), _c("router-link", {
+    staticClass: "nav-item nav-link",
+    attrs: {
+      "exact-active-class": "",
+      to: "/register"
+    }
+  }, [_vm._v("Đăng\n                        ký")])], 1)])])]), _vm._v(" "), _c("div", {
     staticClass: "container mt-5"
   }, [_c("router-view")], 1)]);
 };

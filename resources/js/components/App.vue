@@ -17,10 +17,10 @@
 
                         <a v-if="user" exact-active-class="" to="" class="nav-item nav-link" style="cursor:pointer"
                             @click="logout">Đăng xuất</a>
-                        <div v-else>
-                            <router-link exact-active-class="" to="/signin" class="nav-item nav-link" @click="logout">Đăng
-                                nhập</router-link>
-                        </div>
+                        <router-link v-else exact-active-class="" to="/signin" class="nav-item nav-link">Đăng
+                            nhập</router-link>
+                        <router-link exact-active-class="" to="/register" class="nav-item nav-link">Đăng
+                            ký</router-link>
                     </div>
                 </div>
             </div>

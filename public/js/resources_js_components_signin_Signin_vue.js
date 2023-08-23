@@ -18,9 +18,11 @@ __webpack_require__.r(__webpack_exports__);
       email: '',
       password: '',
       loggedInUser: null,
-      loginSuccess: false
+      loginSuccess: false,
+      loginError: false // Add this variable
     };
   },
+
   methods: {
     validEmail: function validEmail(email) {
       return /\S+@\S+\.\S+/.test(email);
@@ -40,10 +42,11 @@ __webpack_require__.r(__webpack_exports__);
         // Store the authentication token in local storage
         localStorage.setItem('auth_token', response.data.user);
         _this.loginSuccess = true;
+        _this.loginError = false; // Reset the error flag
         location.reload();
         // this.$router.push({ name: 'home' });
       })["catch"](function (error) {
-        // Handle login error
+        _this.loginError = true; // Set the error flag to true
       });
     } // ...
   }
@@ -155,7 +158,11 @@ var render = function render() {
     staticClass: "mt-3"
   }, [_c("p", {
     staticClass: "text-success"
-  }, [_vm._v("Login Success!")])]) : _vm._e()])])])]);
+  }, [_vm._v("Login Success!")])]) : _vm._e(), _vm._v(" "), _vm.loginError ? _c("div", {
+    staticClass: "mt-3"
+  }, [_c("p", {
+    staticClass: "text-danger"
+  }, [_vm._v("Email or password is incorrect. Please try again.")])]) : _vm._e()])])])]);
 };
 var staticRenderFns = [];
 render._withStripped = true;

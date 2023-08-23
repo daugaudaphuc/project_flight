@@ -16,7 +16,7 @@ class FlightsTableSeeder extends Seeder
         $departureLocations = ["Hà Nội", "Hải Phòng", "Đà Nẵng", "Quảng Trị"];
         $currentYear = now()->year;
 
-        foreach (range(1, 10) as $index) {
+        foreach (range(1, 20) as $index) {
             $randomDay = rand(1, 28); // Adjust this based on the month
             $randomMonth = rand(1, 12);
             $flightDate = \Carbon\Carbon::createFromDate($currentYear, $randomMonth, $randomDay);

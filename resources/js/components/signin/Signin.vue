@@ -24,6 +24,9 @@
                     <div class="mt-3" v-if="loginSuccess">
                         <p class="text-success">Login Success!</p>
                     </div>
+                    <div class="mt-3" v-if="loginError">
+                        <p class="text-danger">Email or password is incorrect. Please try again.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -38,7 +41,8 @@ export default {
             email: '',
             password: '',
             loggedInUser: null,
-            loginSuccess: false, 
+            loginSuccess: false,
+            loginError: false, // Add this variable
         };
     },
     methods: {
@@ -60,12 +64,13 @@ export default {
                     // Store the authentication token in local storage
                     localStorage.setItem('auth_token', response.data.user);
                     this.loginSuccess = true;
+                    this.loginError = false; // Reset the error flag
                     location.reload();
                     // this.$router.push({ name: 'home' });
 
                 })
                 .catch(error => {
-                    // Handle login error
+                    this.loginError = true; // Set the error flag to true
                 });
         }
         // ...
